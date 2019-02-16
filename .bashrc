@@ -53,24 +53,28 @@ prompt_git() {
 	fi;
 }
 
-orange=$(tput setaf 166);
-yellow=$(tput setaf 228);
-green=$(tput setaf 71);
-white=$(tput setaf 15);
-violet=$(tput setaf 61);
-blue=$(tput setaf 33);
-bold=$(tput bold);
-reset=$(tput sgr0);
+if [[ $- == *i* ]]; then
 
-PS1="\[${bold}\]\n";
-PS1+="\[${orange}\]\u";
-PS1+="\[${white}\] at ";
-PS1+="\[${yellow}\]\h";
-PS1+="\[${white}\] in ";
-PS1+="\[${green}\]\w";
-PS1+="\$(prompt_git \"\[${white}\] on \[${violet}\]\" \"\[${blue}\]\")"; # Git repository details
-PS1+="\n";
-PS1+="\[${white}\]\$ \[${reset}\]";
-export PS1;﻿
+	orange=$(tput setaf 166);
+	yellow=$(tput setaf 228);
+	green=$(tput setaf 71);
+	white=$(tput setaf 15);
+	violet=$(tput setaf 61);
+	blue=$(tput setaf 33);
+	bold=$(tput bold);
+	reset=$(tput sgr0);
+
+	PS1="\[${bold}\]\n";
+	PS1+="\[${orange}\]\u";
+	PS1+="\[${white}\] at ";
+	PS1+="\[${yellow}\]\h";
+	PS1+="\[${white}\] in ";
+	PS1+="\[${green}\]\w";
+	PS1+="\$(prompt_git \"\[${white}\] on \[${violet}\]\" \"\[${blue}\]\")"; # Git repository details
+	PS1+="\n";
+	PS1+="\[${white}\]\$ \[${reset}\]";
+
+fi;
+
 ##
 alias mysql=/usr/local/mysql/bin//mysql
